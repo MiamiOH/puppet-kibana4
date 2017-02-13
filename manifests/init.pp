@@ -1,11 +1,11 @@
-# == Class: Kibana4
+# == Class: kibana5
 #
-# Installs and configures Kibana4.
+# Installs and configures kibana5.
 #
 # === Parameters
 #
 # [*version*]
-# Version of Kibana4 that gets installed.  Defaults to the latest version
+# Version of kibana5 that gets installed.  Defaults to the latest version
 # available in the `package_repo_version` that is selected.
 #
 # [*manage_repo*]
@@ -28,7 +28,7 @@
 # manual. Defaults to 'true'.
 #
 # [*service_name*]
-# Name of the Kibana4 service. Defaults to 'kibana'.
+# Name of the kibana5 service. Defaults to 'kibana'.
 #
 # [*babel_cache_path*]
 # Kibana uses babel (https://www.npmjs.com/package/babel) which writes it's cache to this location
@@ -37,18 +37,18 @@
 #
 #   see README file
 #
-class kibana4 (
-  $version                       = $kibana4::params::version,
-  $manage_repo                   = $kibana4::params::manage_repo,
-  $package_repo_version          = $kibana4::params::package_repo_version,
+class kibana5 (
+  $version                       = $kibana5::params::version,
+  $manage_repo                   = $kibana5::params::manage_repo,
+  $package_repo_version          = $kibana5::params::package_repo_version,
   $package_repo_proxy            = undef,
-  $service_ensure                = $kibana4::params::service_ensure,
-  $service_enable                = $kibana4::params::service_enable,
-  $service_name                  = $kibana4::params::service_name,
-  $service_provider              = $kibana4::params::service_provider,
-  $config                        = $kibana4::params::config,
+  $service_ensure                = $kibana5::params::service_ensure,
+  $service_enable                = $kibana5::params::service_enable,
+  $service_name                  = $kibana5::params::service_name,
+  $service_provider              = $kibana5::params::service_provider,
+  $config                        = $kibana5::params::config,
   $plugins                       = undef,
-) inherits kibana4::params {
+) inherits kibana5::params {
 
   validate_bool($manage_repo)
 
@@ -56,14 +56,14 @@ class kibana4 (
     validate_string($package_repo_version)
   }
 
-  class {'kibana4::install': }->
-  class {'kibana4::config': }->
-  class {'kibana4::service': }
+  class {'kibana5::install': }->
+  class {'kibana5::config': }->
+  class {'kibana5::service': }
 
-  Kibana4::Plugin { require => Class['kibana4::install'] }
+  kibana5::Plugin { require => Class['kibana5::install'] }
 
   if $plugins {
     validate_hash($plugins)
-    create_resources('kibana4::plugin', $plugins)
+    create_resources('kibana5::plugin', $plugins)
   }
 }

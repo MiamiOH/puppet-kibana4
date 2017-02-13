@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'kibana4' do
+describe 'kibana5' do
 
   context 'with defaults for all parameters' do
     let :facts do
@@ -8,7 +8,7 @@ describe 'kibana4' do
          :osfamily => 'RedHat'
       }
     end
-    it { is_expected.to contain_class('kibana4') }
+    it { is_expected.to contain_class('kibana5') }
   end
 
   context 'installs via package' do
@@ -29,9 +29,9 @@ describe 'kibana4' do
         }
       }
     end
-    it { is_expected.to contain_package('kibana4') }
+    it { is_expected.to contain_package('kibana5') }
     it { is_expected.to contain_file('kibana-config-file').with_path('/opt/kibana/config/kibana.yml') }
-    it { is_expected.to contain_service('kibana4').with_ensure('true').with_enable('true') }
+    it { is_expected.to contain_service('kibana5').with_ensure('true').with_enable('true') }
   end
 
   context 'with manage_repo unspecified' do

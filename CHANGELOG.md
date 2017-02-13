@@ -123,11 +123,11 @@
 #0.0.7 (2015-03-01)
 
 **Enhancements**
- - Run kibana service as kibana4 user by default. Thanks to Andreas Ntaflos.
+ - Run kibana service as kibana5 user by default. Thanks to Andreas Ntaflos.
  - User creation defaults to true.
 
 **Documentation**
- - Documentation changes to reflect kibana4 user creation.
+ - Documentation changes to reflect kibana5 user creation.
 
 #0.0.6 (2015-03-01)
 

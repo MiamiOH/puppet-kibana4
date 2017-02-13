@@ -1,14 +1,14 @@
-# == Class: kibana4
+# == Class: kibana5
 #
 # Service creation and mgmt
 #
-class kibana4::service {
+class kibana5::service {
 
-  service { 'kibana4':
-    ensure     => $kibana4::service_ensure,
-    enable     => $kibana4::service_enable,
+  service { 'kibana5':
+    ensure     => $kibana5::service_ensure,
+    enable     => $kibana5::service_enable,
     name       => kibana,
-    provider   => $kibana4::service_provider,
+    provider   => $kibana5::service_provider,
     hasstatus  => true,
     hasrestart => true,
   }

@@ -1,9 +1,9 @@
-# == Class: kibana4
+# == Class: kibana5
 #
 # Installation
 #
-class kibana4::install {
+class kibana5::install {
 
-  contain kibana4::install::package
+  contain kibana5::install::package
 
 }
